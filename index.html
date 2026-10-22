@@ -203,7 +203,7 @@
         <nav aria-label="Main navigation">
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
-            <a class="nav-join" href="#join">Join us <span aria-hidden="true">↗</span></a>
+            <a class="nav-join" href="#join">Join us</a>
         </nav>
     </header>
 
@@ -211,72 +211,62 @@
         <section class="hero" aria-labelledby="hero-title">
             <canvas class="digital-rain" aria-hidden="true"></canvas>
             <div class="hero-content">
-                <div class="eyebrow">DMHS · make something real</div>
                 <h1 id="hero-title">Hack Club<br><span>Club.</span></h1>
-                <p class="hero-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.</p>
-                <a class="button" href="#about">Explore the club <span aria-hidden="true">↘</span></a>
+                <p class="hero-copy">Del Mar High Schools Coding Club</p>
+                <a class="button" href="#about">About Us</a>
             </div>
         </section>
 
         <section class="intro" id="about">
             <div>
-                <div class="mono">001 / about us</div>
-                <h2>A place to<br>make things.</h2>
+                <h2>We Code<br>a lot.</h2>
             </div>
             <div class="intro-copy">
-                <div class="mono">Lorem ipsum dolor sit amet</div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur est at lobortis. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
-                <p>Maecenas faucibus mollis interdum. Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
+                <p>We compete in hackathons (Programming competitions) and build projects.</p>
             </div>
         </section>
 
         <section class="projects" id="projects">
             <div class="section-heading">
                 <div>
-                    <div class="mono">002 / the good stuff</div>
-                    <h2>Make. Break.<br>Make again.</h2>
+                    <h2>Our Projects</h2>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum.</p>
+                <p>Among out projects are, this website, ...</p>
             </div>
             <div class="project-grid">
                 <article class="project">
-                    <div class="mono project-number">01 / lorem</div>
-                    <h3>Lorem ipsum</h3>
-                    <p>Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis.</p>
+                    <h3>This Website</h3>
+                    <p>This website implements technologies such as Github Pages, HTML, CSS, its simple but a good starting place.</p>
                 </article>
                 <article class="project">
-                    <div class="mono project-number">02 / ipsum</div>
-                    <h3>Dolor sit amet</h3>
-                    <p>Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.</p>
+                    <h3>The cool thing</h3>
+                    <p>I don't have any other projects right now.</p>
                 </article>
                 <article class="project">
-                    <div class="mono project-number">03 / consectetur</div>
-                    <h3>Adipiscing elit</h3>
-                    <p>Vestibulum id ligula porta felis euismod semper. Sed posuere consectetur.</p>
+                    <h3>The awesome revolutionary thing I did</h3>
+                    <p>yeah that thing</p>
                 </article>
             </div>
         </section>
 
         <section class="join" id="join">
             <div class="join-copy">
-                <div class="mono">003 / come hang</div>
-                <h2>Something good<br>starts here.</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id elit non mi porta gravida at eget metus.</p>
+                <p>More text WOW!</p>
             </div>
-            <a class="button" href="#top">Lorem ipsum <span aria-hidden="true">↗</span></a>
+            <a class="button" href="#top">Button to do that thing</a>
         </section>
     </main>
 
     <footer>
         <a class="wordmark" href="#top" aria-label="Hack Club Club home"><img src="logo.png" alt="Hack Club Club"></a>
-        <span>DMHS · Lorem ipsum dolor sit amet</span>
+        <span>DMHS · Hack Club Club</span>
     </footer>
     <script>
         const canvas = document.querySelector(".digital-rain");
         const context = canvas.getContext("2d");
         const hero = canvas.closest(".hero");
         const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-        const glyphs = "アイウエオカキクケコサシスセソタチツテトナニヌネノ012345789";
+        const glyphs = "012345789hackclubclub";//アイウエオカキクケコサシスセソタチツテトナニヌネノ
         const fontSize = 17;
         let drops = [];
         let width = 0;

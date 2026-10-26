@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f24f36">
+    <meta name="description" content="Hack Club Club at DMHS. Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
+    <title>Hack Club Club | DMHS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light;
+            --ink: #171717;
+            --paper: #fff;
+            --red: #f24f36;
+            --line: rgba(23, 23, 23, .2);
+            font-family: "Space Grotesk", sans-serif;
+            font-synthesis: none;
+            text-rendering: optimizeLegibility;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { margin: 0; color: var(--ink); background: var(--paper); }
+        a { color: inherit; }
+
+        .topbar {
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 6.2%;
+            color: white;
+        }
+
+        .wordmark {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .wordmark img {
+            display: block;
+            width: 112px;
+            height: auto;
+        }
+
+        nav { display: flex; align-items: center; gap: 32px; }
+        nav a { font-size: 13px; font-weight: 600; text-decoration: none; }
+        nav a:hover { text-decoration: underline; text-underline-offset: 5px; }
+        nav .nav-join { padding: 11px 16px; border: 1px solid rgba(255,255,255,.72); border-radius: 3px; }
+
+        .hero {
+            position: relative;
+            display: flex;
+            min-height: 680px;
+            min-height: min(780px, 100svh);
+            align-items: flex-end;
+            overflow: hidden;
+            color: white;
+            background: #090b0a;
+        }
+
+        .hero::before {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(9, 11, 10, .56), rgba(9, 11, 10, .13) 66%, rgba(9, 11, 10, .08)), linear-gradient(0deg, rgba(9, 11, 10, .35), transparent 55%);
+            content: "";
+        }
+
+        .digital-rain {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            width: min(900px, 100%);
+            padding: 170px 6.2% 74px;
+            animation: arrive .75s ease-out both;
+        }
+
+        .eyebrow, .mono {
+            font-family: "DM Mono", monospace;
+            font-size: 11px;
+            letter-spacing: 0;
+            text-transform: uppercase;
+        }
+
+        .eyebrow { display: flex; align-items: center; gap: 10px; color: white; }
+        .eyebrow::before { width: 22px; height: 1px; background: currentColor; content: ""; }
+        h1 { max-width: 780px; margin: 22px 0 18px; font-size: clamp(64px, 10vw, 126px); font-weight: 700; line-height: .84; letter-spacing: 0; }
+        h1 span { color: white; }
+        .hero-copy { max-width: 450px; margin: 25px 0 30px; color: rgba(255,255,255,.88); font-size: 16px; line-height: 1.65; }
+
+        .button {
+            display: inline-flex;
+            min-height: 48px;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            padding: 0 18px;
+            border: 1px solid var(--red);
+            border-radius: 3px;
+            color: white;
+            background: var(--red);
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background .18s ease, color .18s ease;
+        }
+
+        .button:hover { color: var(--ink); background: white; border-color: white; }
+        .button span { font-size: 18px; line-height: 1; }
+
+        .intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8%;
+            padding: 100px 10%;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .intro h2, .section-heading h2, .join h2 { margin: 0; font-size: clamp(38px, 5vw, 64px); line-height: .98; letter-spacing: 0; }
+        .intro-copy { max-width: 510px; padding-top: 5px; }
+        .intro-copy p, .project p, .join p { color: #585858; font-size: 15px; line-height: 1.75; }
+        .intro-copy .mono, .section-heading .mono { color: var(--red); }
+
+        .projects { padding: 92px 10% 106px; }
+        .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 40px; }
+        .section-heading h2 { margin-top: 13px; }
+        .section-heading > p { max-width: 290px; margin: 0 0 5px; color: #585858; font-size: 14px; line-height: 1.6; }
+        .project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+        .project { min-height: 230px; padding: 25px 26px 24px 0; }
+        .project + .project { padding-left: 26px; border-left: 1px solid var(--line); }
+        .project-number { color: var(--red); }
+        .project h3 { margin: 38px 0 8px; font-size: 23px; }
+        .project p { max-width: 280px; margin: 0; font-size: 14px; }
+
+        .join {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 36px;
+            padding: 72px 10%;
+            color: white;
+            background: var(--red);
+        }
+
+        .join-copy { max-width: 570px; }
+        .join .mono { color: rgba(255,255,255,.8); }
+        .join h2 { margin-top: 12px; font-size: clamp(36px, 4.5vw, 56px); }
+        .join p { max-width: 470px; margin-bottom: 0; color: rgba(255,255,255,.9); }
+        .join .button { flex: 0 0 auto; }
+        .join .button { color: var(--red); background: white; border-color: white; }
+        .join .button:hover { color: white; background: transparent; border-color: white; }
+
+        footer { display: flex; justify-content: space-between; gap: 20px; padding: 22px 6.2%; color: #5c5c5c; font-size: 12px; }
+        footer .wordmark { color: var(--ink); }
+
+        @keyframes arrive { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 700px) {
+            .topbar { padding: 18px 6%; }
+            nav { gap: 16px; }
+            nav a { font-size: 12px; }
+            nav a:nth-child(2) { display: none; }
+            nav .nav-join { padding: 9px 11px; }
+            .hero { min-height: 680px; min-height: 88svh; }
+            .hero-content { padding: 145px 7% 55px; }
+            h1 { font-size: clamp(66px, 17vw, 104px); }
+            .hero-copy { max-width: 360px; font-size: 15px; }
+            .intro { grid-template-columns: 1fr; gap: 24px; padding: 68px 7%; }
+            .intro-copy { padding: 0; }
+            .projects { padding: 68px 7% 76px; }
+            .section-heading { align-items: start; flex-direction: column; margin-bottom: 28px; }
+            .project-grid { grid-template-columns: 1fr; }
+            .project, .project + .project { min-height: auto; padding: 23px 0; border-left: 0; }
+            .project + .project { border-top: 1px solid var(--line); }
+            .project h3 { margin-top: 22px; }
+            .join { align-items: flex-start; flex-direction: column; padding: 58px 7%; }
+            footer { padding: 20px 7%; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <a class="wordmark" href="#top" aria-label="Hack Club Club home"><img src="logo.png" alt="Hack Club Club"></a>
+        <nav aria-label="Main navigation">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a class="nav-join" href="#join">Join us</a>
+        </nav>
+    </header>
+
+    <main id="top">
+        <section class="hero" aria-labelledby="hero-title">
+            <canvas class="digital-rain" aria-hidden="true"></canvas>
+            <div class="hero-content">
+                <h1 id="hero-title">Hack Club<br><span>Club.</span></h1>
+                <p class="hero-copy">Del Mar High Schools Coding Club</p>
+                <a class="button" href="#about">About Us</a>
+            </div>
+        </section>
+
+        <section class="intro" id="about">
+            <div>
+                <h2>We Code<br>a lot.</h2>
+            </div>
+            <div class="intro-copy">
+                <p>We compete in hackathons (Programming competitions) and build projects.</p>
+            </div>
+        </section>
+
+        <section class="projects" id="projects">
+            <div class="section-heading">
+                <div>
+                    <h2>Our Projects</h2>
+                </div>
+                <p>Among out projects are, this website, ...</p>
+            </div>
+            <div class="project-grid">
+                <article class="project">
+                    <h3>This Website</h3>
+                    <p>This website implements technologies such as Github Pages, HTML, CSS, its simple but a good starting place.</p>
+                </article>
+                <article class="project">
+                    <h3>The cool thing</h3>
+                    <p>I don't have any other projects right now.</p>
+                </article>
+                <article class="project">
+                    <h3>The awesome revolutionary thing I did</h3>
+                    <p>yeah that thing</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="join" id="join">
+            <div class="join-copy">
+                <p>More text WOW!</p>
+            </div>
+            <a class="button" href="#top">Button to do that thing</a>
+        </section>
+    </main>
+
+    <footer>
+        <a class="wordmark" href="#top" aria-label="Hack Club Club home"><img src="logo.png" alt="Hack Club Club"></a>
+        <span>DMHS · Hack Club Club</span>
+    </footer>
+    <script>
+        const canvas = document.querySelector(".digital-rain");
+        const context = canvas.getContext("2d");
+        const hero = canvas.closest(".hero");
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+        const glyphs = "012345789hackclubclub";//アイウエオカキクケコサシスセソタチツテトナニヌネノ
+        const fontSize = 17;
+        let drops = [];
+        let width = 0;
+        let height = 0;
+        let frame = 0;
+        let lastDraw = 0;
+
+        function resizeRain() {
+            cancelAnimationFrame(frame);
+            const bounds = hero.getBoundingClientRect();
+            const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+            width = bounds.width;
+            height = bounds.height;
+            canvas.width = Math.floor(width * pixelRatio);
+            canvas.height = Math.floor(height * pixelRatio);
+            context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+            context.font = `${fontSize}px monospace`;
+            drops = Array.from({ length: Math.ceil(width / fontSize) }, () => Math.random() * -height / fontSize);
+            lastDraw = 0;
+            drawRain();
+        }
+
+        function drawRain(timestamp = 0) {
+            if (!reducedMotion.matches && timestamp - lastDraw < 55) {
+                frame = requestAnimationFrame(drawRain);
+                return;
+            }
+            lastDraw = timestamp;
+            context.fillStyle = "rgba(9, 11, 10, 0.12)";
+            context.fillRect(0, 0, width, height);
+            context.font = `${fontSize}px monospace`;
+
+            for (let column = 0; column < drops.length; column++) {
+                const y = drops[column] * fontSize;
+                const glyph = glyphs[Math.floor(Math.random() * glyphs.length)];
+                context.fillStyle = Math.random() > 0.965 ? "#ffffff" : "#f24f36";
+                context.fillText(glyph, column * fontSize, y);
+                if (y > height && Math.random() > 0.975) drops[column] = 0;
+                drops[column] += reducedMotion.matches ? 0 : 0.42;
+            }
+
+            if (!reducedMotion.matches) frame = requestAnimationFrame(drawRain);
+        }
+
+        if (context) {
+            resizeRain();
+            window.addEventListener("resize", resizeRain);
+            reducedMotion.addEventListener("change", () => {
+                cancelAnimationFrame(frame);
+                lastDraw = 0;
+                drawRain();
+            });
+        } else {
+            console.error("Digital rain effect could not start: canvas rendering is unavailable.");
+        }
+    </script>
+</body>
+</html>

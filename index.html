@@ -84,7 +84,7 @@
 
         .hero-content {
             position: relative;
-            width: min(900px, 100%);
+            width: 100%;
             padding: 170px 6.2% 74px;
             animation: arrive .75s ease-out both;
         }
@@ -98,7 +98,7 @@
 
         .eyebrow { display: flex; align-items: center; gap: 10px; color: white; }
         .eyebrow::before { width: 22px; height: 1px; background: currentColor; content: ""; }
-        h1 { max-width: 780px; margin: 22px 0 18px; font-size: clamp(64px, 10vw, 126px); font-weight: 700; line-height: .84; letter-spacing: 0; }
+        h1 { max-width: min(1200px, 100%); margin: 22px 0 18px; font-size: clamp(64px, 10vw, 126px); font-weight: 700; line-height: .84; letter-spacing: 0; }
         h1 span { color: white; }
         .hero-copy { max-width: 450px; margin: 25px 0 30px; color: rgba(255,255,255,.88); font-size: 16px; line-height: 1.65; }
 
@@ -211,7 +211,7 @@
         <section class="hero" aria-labelledby="hero-title">
             <canvas class="digital-rain" aria-hidden="true"></canvas>
             <div class="hero-content">
-                <h1 id="hero-title">Hack Club<br><span>Club.</span></h1>
+                <h1 id="hero-title">hackclub's club hack club club sponsored by hack club at hackclubclub.club<br></h1>
                 <p class="hero-copy">Del Mar High Schools Coding Club</p>
                 <a class="button" href="#about">About Us</a>
             </div>
